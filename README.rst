@@ -23,6 +23,18 @@ contains general purpose assertions that can be used across many packages,
 and provide accurate, and helpful error messages.
 
 
+Contributing
+------------
+
+To get started with ``assert``:
+
+.. code::
+
+    make shell
+    glide install
+    hack/watch
+
+
 Related libraries
 -----------------
 
@@ -31,5 +43,5 @@ where only the bare python ``assert`` statement is used, and the framework is
 responsible for generating a helpful error message.
 
 `stretchr/testify/assert <https://github.com/stretchr/testify#assert-package>`_
-also provides a set of assertions, however they suffer from some of the same
-problems. A failure messages is required for most assertions.
+also provides a set of assertions, however they use ``t.Errorf()`` to report
+an error instead of failing the test.
