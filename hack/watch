@@ -1,0 +1,9 @@
+#!/bin/bash
+
+exec filewatcher \
+    -x '**/*.swp' \
+    -x vendor \
+    -x .git \
+    -x dist \
+    -- \
+    hack/test-unit

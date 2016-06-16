@@ -1,0 +1,18 @@
+FROM    golang:1.6-alpine
+
+RUN     apk add -U git bash curl tree
+
+RUN     go get github.com/dnephin/filewatcher && \
+        cp /go/bin/filewatcher /usr/bin/ && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+RUN     export GLIDE=0.10.2; \
+        export SRC=https://github.com/Masterminds/glide/releases/download/; \
+        curl -sL ${SRC}/${GLIDE}/glide-${GLIDE}-linux-amd64.tar.gz | \
+        tar -xz linux-amd64/glide && \
+        mv linux-amd64/glide /usr/bin/glide && \
+        chmod +x /usr/bin/glide && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+WORKDIR /go/src/github.com/dnephin/assert
+ENV     PS1="# "

@@ -1,0 +1,6 @@
+
+package: github.com/dnephin/assert
+import:
+- package: github.com/davecgh/go-spew
+  subpackages:
+  - spew
